@@ -40,8 +40,8 @@ bookmarks.post('/', checkForNameKey, checkForDotCom, (req, res) => {
 bookmarks.delete('/:arrayIndex', (req, res) => {
     const { arrayIndex } = req.params
     if(bookmarksArray[arrayIndex]){
-        const deletedBookmark = bookmarksArray.splice(arrayIndex, 1)
-        res.json(deletedBookmark[0])
+        bookmarksArray.splice(arrayIndex, 1)
+        res.json({error: "Bookmark removed successfully"})
     } else {
         res.json({ error: "Bookmark Not Found" })
     }
